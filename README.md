@@ -1,7 +1,7 @@
 # 📚 DBMS LAB - IILM University
 
 > **Student:** Shreyansh pratap mishra  
-> **Class:** 2CSE12-2410031055
+> **Class:** 2CSE12-2410031055 
 > **Course:** Database Management System Lab  
 > **Database:** SHREYANSH  
 > **Server:** MariaDB 10.4.32 (XAMPP)
