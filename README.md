@@ -13,8 +13,11 @@
 - [x] Lab Assignment 02 - Data Retrieval Queries
 - [x] Lab Assignment 03 - Advanced Retrieval & Sorting
 - [x] Lab Assignment 04 - String Functions, Computed Columns & DML operations
-- [x] Lab Assignment 05 - Filtering the databases using SQL command 
-- [ ] Lab Assignment 06 - *(Coming Soon)*
+- [x] Lab Assignment 05 - Aggregate Functions & String Functions 
+- [x] Lab Assignment 06 - Date Functions, CASE/DECODE & String Operations
+- [x] Lab Assignment 07 - Aggregate Functions, GROUP BY & Matrix Queries
+- [x] Lab Assignment 08 - JOINs, Self-Joins & Multi-Table Queries
+- [ ] Lab Assignment 09 - *coming soon*
 
 ---
 
