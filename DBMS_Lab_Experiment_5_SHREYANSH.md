@@ -1,4 +1,4 @@
-# 📚 DBMS LAB ASSIGNMENT 05
+# DBMS LAB ASSIGNMENT 05
 
 > **Date:** 12/February/2026  
 > **Database:** shreyansh  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Objective
+## Objective
 
 Perform SQL queries on the **EMPLOYEE** table using **Aggregate Functions** (COUNT, SUM, MAX, MIN, AVG) and **String Functions** (UPPER, LOWER, INITCAP, LENGTH):
 
@@ -27,43 +27,9 @@ Perform SQL queries on the **EMPLOYEE** table using **Aggregate Functions** (COU
 15. Display the length of all the employee names.
 
 ---
-
-## 📊 Reference Tables
-
-### EMPLOYEE Table
-
-| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-|-------|--------|-----------|------|------------|------|------|--------|
-| 7369  | SMITH  | CLERK     | 7902 | 1980-12-17 | 800  | NULL | 20     |
-| 7499  | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 | 300  | 30     |
-| 7521  | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 | 300  | 30     |
-| 7566  | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL | 20     |
-| 7654  | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 | 30     |
-| 7698  | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL | 30     |
-| 7782  | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL | 20     |
-| 7788  | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL | 40     |
-| 7839  | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL | 20     |
-| 7844  | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 | 0    | 30     |
-| 7876  | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL | 20     |
-| 7900  | JAMES  | CLERK     | 7698 | 1981-12-03 | 950  | NULL | 30     |
-| 7902  | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL | 20     |
-| 7934  | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL | 10     |
-
 ---
 
-## 🔧 Database Connection
-
-```sql
--- Connect to MySQL/MariaDB
-C:\xampp\mysql\bin> mysql -u root
-
--- Select the database
-USE shreyansh;
-```
-
----
-
-## ✅ Problem Solutions
+## Problem Solutions
 
 ### Problem 1: Display the Total Number of Employee Working in the Company
 
@@ -83,8 +49,6 @@ FROM EMPLOYEE;
 +-----------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** There are **14** employees working in the company.
 
 ---
 
@@ -107,8 +71,6 @@ FROM EMPLOYEE;
 1 row in set (0.001 sec)
 ```
 
-> ✅ **Result:** The total salary being paid to all employees is **29025**.
-
 ---
 
 ### Problem 3: Display the Maximum Salary from Employee Table
@@ -129,8 +91,6 @@ FROM EMPLOYEE;
 +------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** The maximum salary is **5000** (earned by KING).
 
 ---
 
@@ -153,8 +113,6 @@ FROM EMPLOYEE;
 1 row in set (0.001 sec)
 ```
 
-> ✅ **Result:** The minimum salary is **800** (earned by SMITH).
-
 ---
 
 ### Problem 5: Display the Average Salary from Employee Table
@@ -175,8 +133,6 @@ FROM EMPLOYEE;
 +-------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** The average salary of all employees is approximately **2073.21**.
 
 ---
 
@@ -200,8 +156,6 @@ WHERE JOB = 'CLERK';
 1 row in set (0.001 sec)
 ```
 
-> ✅ **Result:** The maximum salary paid to a CLERK is **1300** (earned by MILLER).
-
 ---
 
 ### Problem 7: Display the Maximum Salary Being Paid in Dept No 20
@@ -224,7 +178,6 @@ WHERE DEPTNO = 20;
 1 row in set (0.001 sec)
 ```
 
-> ✅ **Result:** The maximum salary in department 20 is **5000** (earned by KING).
 
 ---
 
@@ -248,8 +201,6 @@ WHERE JOB = 'SALESMAN';
 1 row in set (0.001 sec)
 ```
 
-> ✅ **Result:** The minimum salary paid to a SALESMAN is **1250** (earned by WARD and MARTIN).
-
 ---
 
 ### Problem 9: Display the Average Salary Drawn by Managers
@@ -271,8 +222,6 @@ WHERE JOB = 'MANAGER';
 +--------------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** The average salary drawn by managers is approximately **2758.33** (JONES: 2975, BLAKE: 2850, CLARK: 2450).
 
 ---
 
@@ -296,8 +245,6 @@ WHERE JOB = 'ANALYST'
 +--------------------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** The total salary drawn by analysts in department 40 is **3000** (only SCOTT works as ANALYST in dept 40).
 
 ---
 
@@ -333,8 +280,6 @@ FROM EMPLOYEE;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employee names displayed in uppercase. Since names are already stored in uppercase, the output remains the same.
-
 ---
 
 ### Problem 12: Display the Names of the Employee in Lowercase
@@ -368,8 +313,6 @@ FROM EMPLOYEE;
 +---------------------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employee names displayed in lowercase.
 
 ---
 
@@ -405,8 +348,6 @@ FROM EMPLOYEE;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employee names displayed in proper case (title case) using CONCAT, UPPER, LOWER, and SUBSTRING functions.
-
 ---
 
 ### Problem 14: Display the Length of Your Name Using Appropriate Function
@@ -426,8 +367,6 @@ SELECT LENGTH('shreyansh pratap mishra') AS NAME_LENGTH;
 +-------------+
 1 row in set (0.001 sec)
 ```
-
-> ✅ **Result:** The length of the name **"shreyansh pratap mishra"** is **10** characters (including the space).
 
 ---
 
@@ -462,66 +401,6 @@ FROM EMPLOYEE;
 +--------+-------------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employee name lengths displayed. Shortest names are WARD, KING, FORD (4 chars); longest are MARTIN, TURNER, MILLER (6 chars).
-
----
-
-## 📝 Summary
-
-| # | Task | SQL Function Used | Result |
-|---|------|-------------------|--------|
-| 1 | Total number of employees | `COUNT(*)` | 14 |
-| 2 | Total salary paid | `SUM(SAL)` | 29025 |
-| 3 | Maximum salary | `MAX(SAL)` | 5000 |
-| 4 | Minimum salary | `MIN(SAL)` | 800 |
-| 5 | Average salary | `AVG(SAL)` | 2073.21 |
-| 6 | Max salary for CLERK | `MAX(SAL)` with `WHERE` | 1300 |
-| 7 | Max salary in dept 20 | `MAX(SAL)` with `WHERE` | 5000 |
-| 8 | Min salary for SALESMAN | `MIN(SAL)` with `WHERE` | 1250 |
-| 9 | Avg salary for MANAGER | `AVG(SAL)` with `WHERE` | 2758.33 |
-| 10 | Total salary for ANALYST in dept 40 | `SUM(SAL)` with `WHERE` | 3000 |
-| 11 | Names in Uppercase | `UPPER()` | 14 names |
-| 12 | Names in Lowercase | `LOWER()` | 14 names |
-| 13 | Names in Proper case | `CONCAT() + UPPER() + LOWER() + SUBSTRING()` | 14 names |
-| 14 | Length of your name | `LENGTH()` | 10 |
-| 15 | Length of all employee names | `LENGTH()` | 14 names |
-
----
-
-## 🔑 Key SQL Concepts Used
-
-| Concept | Purpose | Example |
-|---------|---------|---------|
-| `COUNT(*)` | Counts total rows | `SELECT COUNT(*) FROM EMPLOYEE` |
-| `SUM(col)` | Adds all values in a column | `SELECT SUM(SAL) FROM EMPLOYEE` |
-| `MAX(col)` | Returns the largest value | `SELECT MAX(SAL) FROM EMPLOYEE` |
-| `MIN(col)` | Returns the smallest value | `SELECT MIN(SAL) FROM EMPLOYEE` |
-| `AVG(col)` | Returns the average value | `SELECT AVG(SAL) FROM EMPLOYEE` |
-| `UPPER(str)` | Converts string to uppercase | `SELECT UPPER(ENAME) FROM EMPLOYEE` |
-| `LOWER(str)` | Converts string to lowercase | `SELECT LOWER(ENAME) FROM EMPLOYEE` |
-| `SUBSTRING(str, pos, len)` | Extracts part of a string | `SUBSTRING(ENAME, 1, 1)` |
-| `CONCAT(str1, str2)` | Joins strings together | `CONCAT(UPPER(...), LOWER(...))` |
-| `LENGTH(str)` | Returns the length of a string | `SELECT LENGTH(ENAME) FROM EMPLOYEE` |
-
----
-
-## 📚 SQL Functions Reference
-
-| Function | Category | Description | Example |
-|----------|----------|-------------|---------|
-| `COUNT(*)` | Aggregate | Counts all rows | `COUNT(*)` → 14 |
-| `COUNT(col)` | Aggregate | Counts non-NULL values | `COUNT(COMM)` → 4 |
-| `SUM(col)` | Aggregate | Sum of column values | `SUM(SAL)` → 29025 |
-| `MAX(col)` | Aggregate | Maximum value | `MAX(SAL)` → 5000 |
-| `MIN(col)` | Aggregate | Minimum value | `MIN(SAL)` → 800 |
-| `AVG(col)` | Aggregate | Average value | `AVG(SAL)` → 2073.21 |
-| `UPPER(str)` | String | Converts to uppercase | `UPPER('smith')` → 'SMITH' |
-| `LOWER(str)` | String | Converts to lowercase | `LOWER('SMITH')` → 'smith' |
-| `LENGTH(str)` | String | Returns string length | `LENGTH('SMITH')` → 5 |
-| `SUBSTRING(str, pos, len)` | String | Extracts substring | `SUBSTRING('SMITH', 1, 1)` → 'S' |
-| `CONCAT(str1, str2)` | String | Concatenates strings | `CONCAT('A', 'B')` → 'AB' |
-
 ---
 
 > **Submitted By:** shreyansh pratap mishra  
