@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Objective
+## Objective
 
 Perform SQL queries on the **EMPLOYEE** table using **Date Computations**, **Aggregate Functions**, **GROUP BY**, **Matrix Queries**, and **Formatting**:
 
