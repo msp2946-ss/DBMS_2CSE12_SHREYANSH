@@ -1,4 +1,4 @@
-# 📚 DBMS LAB ASSIGNMENT 04
+# DBMS LAB ASSIGNMENT 04
 
 > **Date:** 11/February/2026  
 > **Database:** shreyansh  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Objective
+## Objective
 
 Perform advanced SQL queries on the **EMPLOYEE** table using date functions, pattern matching, string functions, computed columns, and DML operations:
 
@@ -21,44 +21,10 @@ Perform advanced SQL queries on the **EMPLOYEE** table using date functions, pat
 9. Display employees whose salary is more than 3000 after giving 20% increment
 10. Display employees whose salary contains at least 3 digits
 
----
-
-## 📊 Reference Tables
-
-### EMPLOYEE Table
-
-| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-|-------|--------|-----------|------|------------|------|------|--------|
-| 7369  | SMITH  | CLERK     | 7902 | 1980-12-17 | 800  | NULL | 20     |
-| 7499  | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 | 300  | 30     |
-| 7521  | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 | 300  | 30     |
-| 7566  | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL | 20     |
-| 7654  | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 | 30     |
-| 7698  | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL | 30     |
-| 7782  | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL | 20     |
-| 7788  | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL | 40     |
-| 7839  | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL | 20     |
-| 7844  | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 | 0    | 30     |
-| 7876  | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL | 20     |
-| 7900  | JAMES  | CLERK     | 7698 | 1981-12-03 | 950  | NULL | 30     |
-| 7902  | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL | 20     |
-| 7934  | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL | 10     |
 
 ---
 
-## 🔧 Database Connection
-
-```sql
--- Connect to MySQL/MariaDB
-C:\xampp\mysql\bin> mysql -u root
-
--- Select the database
-USE shreyansh;
-```
-
----
-
-## ✅ Problem Solutions
+## Problem Solutions
 
 ### Problem 1: Display Employees Who Joined Before 30th June 80 or After 31st Dec 81
 
@@ -84,9 +50,6 @@ WHERE HIREDATE < '1980-06-30'
 4 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 4 employees found: SMITH (joined before June 80 — Dec 1980 but after June 80, so actually only those after Dec 81 qualify along with any before June 80). SCOTT, ADAMS, MILLER joined after 31st Dec 81.
-
-> **Note:** SMITH's hiredate is 1980-12-17 which is AFTER 1980-06-30, so SMITH does NOT satisfy the "before 30th June 80" condition. However, SMITH also does not satisfy the "after 31st Dec 81" condition. Let me re-evaluate:
 
 **Corrected Output:**
 ```
@@ -99,8 +62,6 @@ WHERE HIREDATE < '1980-06-30'
 +-------+--------+---------+------+------------+------+------+--------+
 3 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** 3 employees joined after 31st Dec 81: SCOTT, ADAMS, MILLER. No employee joined before 30th June 80.
 
 ---
 
@@ -126,7 +87,6 @@ WHERE ENAME LIKE '_A%';
 3 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 3 employees found with 'A' as second letter: WARD, MARTIN, JAMES
 
 ---
 
@@ -157,7 +117,6 @@ WHERE LENGTH(ENAME) = 5;
 8 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 8 employees found with exactly 5-character names: SMITH, ALLEN, JONES, BLAKE, CLARK, SCOTT, ADAMS, JAMES
 
 ---
 
@@ -187,8 +146,6 @@ WHERE ENAME LIKE '%A_';
 2 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 2 employees have 'A' as their second last letter: **BLAKE** (BLAK**E** → A is 4th of 5), **ADAMS** (ADAM**S** → A is 4th of 5)
-
 ---
 
 ### Problem 5: Display Employees Who Are Not Working as Salesman or Clerk or Analyst
@@ -213,8 +170,6 @@ WHERE JOB NOT IN ('SALESMAN', 'CLERK', 'ANALYST');
 +-------+-----------+
 4 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** 4 employees found: JONES (MANAGER), BLAKE (MANAGER), CLARK (MANAGER), KING (PRESIDENT)
 
 ---
 
@@ -251,7 +206,6 @@ ORDER BY ANNUAL_SALARY DESC;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** KING earns the highest annual salary (60000), SMITH earns the lowest (9600)
 
 ---
 
@@ -296,8 +250,6 @@ FROM EMPLOYEE;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** Total salary for each employee displayed with column order: SAL, HRA (15%), PF (5%), DA (10%), TOTALSAL = (SAL+HRA+DA)-PF
-
 ---
 
 ### Problem 8: Update Salary by 10% for Employees Not Eligible for Commission
@@ -341,8 +293,6 @@ WHERE COMM IS NULL;
 10 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 9 employees updated with 10% increment (all employees with COMM = NULL). Note: TURNER has COMM = 0, which is NOT NULL, so TURNER is excluded from this update.
-
 ---
 
 ### Problem 9: Display Employees Whose Salary Is More Than 3000 After 20% Increment
@@ -368,10 +318,6 @@ WHERE SAL * 1.20 > 3000;
 +-------+------+---------------------+
 5 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** 5 employees have salary > 3000 after 20% increment: JONES, BLAKE, SCOTT, KING, FORD
-
-> **Note:** CLARK (SAL=2450, after 20% = 2940) does NOT qualify as 2940 < 3000.
 
 ---
 
@@ -414,8 +360,6 @@ WHERE LENGTH(CAST(SAL AS UNSIGNED)) >= 3;
 +--------+------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employees have salaries with at least 3 digits (all salaries range from 800 to 5000)
 
 ---
 
