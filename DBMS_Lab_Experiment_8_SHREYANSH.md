@@ -1,5 +1,5 @@
 
-# 📚 DBMS LAB ASSIGNMENT 08
+# DBMS LAB ASSIGNMENT 08
 
 > **Date:** 12/February/2026  
 > **Database:** shreyansh  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Objective
+## Objective
 
 Perform advanced SQL **JOIN** queries on the **EMPLOYEE**, **DEPARTMENT**, and **SALGRADE** tables including INNER JOIN, LEFT JOIN, self-joins, and multi-table queries:
 
@@ -24,58 +24,6 @@ Perform advanced SQL **JOIN** queries on the **EMPLOYEE**, **DEPARTMENT**, and *
 11. Display employee name and department name for each employee.
 
 ---
-
-## 📊 Reference Tables
-
-### EMPLOYEE Table
-
-| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-|-------|--------|-----------|------|------------|------|------|--------|
-| 7369  | SMITH  | CLERK     | 7902 | 1980-12-17 | 800  | NULL | 20     |
-| 7499  | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 | 300  | 30     |
-| 7521  | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 | 300  | 30     |
-| 7566  | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL | 20     |
-| 7654  | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 | 30     |
-| 7698  | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL | 30     |
-| 7782  | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL | 20     |
-| 7788  | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL | 40     |
-| 7839  | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL | 20     |
-| 7844  | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 | 0    | 30     |
-| 7876  | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL | 20     |
-| 7900  | JAMES  | CLERK     | 7698 | 1981-12-03 | 950  | NULL | 30     |
-| 7902  | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL | 20     |
-| 7934  | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL | 10     |
-
-### DEPARTMENT Table
-
-| DEPTNO | DNAME      | LOC      |
-|--------|------------|----------|
-| 10     | ACCOUNTING | NEW YORK |
-| 20     | RESEARCH   | DALLAS   |
-| 30     | SALES      | CHICAGO  |
-| 40     | OPERATIONS | BOSTON    |
-
-### SALGRADE Table
-
-| GRADE | LOSAL | HISAL |
-|-------|-------|-------|
-| 1     | 700   | 1200  |
-| 2     | 1201  | 1400  |
-| 3     | 1401  | 2000  |
-| 4     | 2001  | 3000  |
-| 5     | 3001  | 9999  |
-
----
-
-## 🔧 Database Connection & Prerequisites
-
-```sql
--- Connect to MySQL/MariaDB
-C:\xampp\mysql\bin> mysql -u root
-
--- Select the database
-USE shreyansh;
-```
 
 ### Create SALGRADE Table (if not exists)
 
@@ -106,7 +54,7 @@ UPDATE DEPARTMENT SET LOC = 'BOSTON' WHERE DEPTNO = 40;
 
 ---
 
-## ✅ Problem Solutions
+## Problem Solutions
 
 ### Problem 1: Display All Employees with Their Dept Name
 
@@ -141,8 +89,6 @@ INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employees displayed with their department names using INNER JOIN.
-
 ---
 
 ### Problem 2: Display Employees Whose Manager Is JONES, Along with Manager Name
@@ -168,8 +114,6 @@ WHERE M.ENAME = 'JONES';
 +---------------+---------+--------------+
 2 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** **SCOTT** and **FORD** are managed by JONES. Both are ANALYSTs reporting to JONES (EMPNO 7566).
 
 ---
 
@@ -211,8 +155,6 @@ ORDER BY D.DNAME;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employees displayed with their job, department, manager, and salary grade ordered by department. KING has NULL manager (PRESIDENT). Grades range from 1 (low salary) to 5 (KING).
-
 ---
 
 ### Problem 4: List Employees (Except Clerks) with Job, Grade, and Dept Name — Sorted by Highest Salary
@@ -247,8 +189,6 @@ ORDER BY E.SAL DESC;
 +--------+-----------+------+-------+------------+
 10 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** 10 employees (excluding 4 CLERKs: SMITH, ADAMS, JAMES, MILLER) displayed sorted by salary descending. KING tops with SAL=5000 (Grade 5).
 
 ---
 
@@ -286,8 +226,6 @@ LEFT JOIN EMPLOYEE M ON E.MGR = M.EMPNO;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employees displayed. **KING** (PRESIDENT) shows `NULL` as manager because he has no manager (MGR IS NULL). LEFT JOIN ensures KING is included unlike INNER JOIN.
-
 ---
 
 ### Problem 6: List Employees Who Earn 36000 a Year OR Who Are Not Clerks
@@ -324,8 +262,6 @@ WHERE E.SAL * 12 >= 36000
 10 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** 10 employees qualify — all non-CLERKs are included (OR condition). CLERKs (SMITH, ADAMS, JAMES, MILLER) are excluded as they earn less than 36000 annually.
-
 ---
 
 ### Problem 7: List Employees Who Earn 30000 Per Year AND Are Not Clerks
@@ -356,8 +292,6 @@ WHERE E.SAL * 12 >= 30000
 +-------+-----------+------------+--------+------------+-------+
 5 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** 5 employees earn ≥ 30000 annually AND are not CLERKs. CLARK (SAL=2450, annual=29400) is excluded as 29400 < 30000.
 
 ---
 
@@ -397,8 +331,6 @@ LEFT JOIN EMPLOYEE M ON E.MGR = M.EMPNO;
 14 rows in set (0.001 sec)
 ```
 
-> ✅ **Result:** All 14 employees listed with their managers. **KING** displays `NO MANAGER` and `N/A` for manager number using the `IFNULL()` function.
-
 ---
 
 ### Problem 9: Select Dept Name, Dept No, and Sum of Salary
@@ -426,16 +358,6 @@ ORDER BY D.DEPTNO;
 +------------+--------+--------------+
 4 rows in set (0.001 sec)
 ```
-
-**Breakdown:**
-| DNAME | Employees & Salaries | Total |
-|-------|----------------------|-------|
-| ACCOUNTING | MILLER(1300) | 1300 |
-| RESEARCH | SMITH(800) + JONES(2975) + CLARK(2450) + KING(5000) + ADAMS(1100) + FORD(3000) | 15325 |
-| SALES | ALLEN(1600) + WARD(1250) + MARTIN(1250) + BLAKE(2850) + TURNER(1500) + JAMES(950) | 9400 |
-| OPERATIONS | SCOTT(3000) | 3000 |
-
-> ✅ **Result:** RESEARCH department has the highest total salary (**15325**), followed by SALES (**9400**).
 
 ---
 
@@ -471,8 +393,6 @@ JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
 +-------+--------+----------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employees displayed with their department location. DALLAS has 6 employees, CHICAGO has 6, NEW YORK has 1, and BOSTON has 1.
 
 ---
 
@@ -510,58 +430,6 @@ ORDER BY D.DNAME, E.ENAME;
 +---------------+-----------------+
 14 rows in set (0.001 sec)
 ```
-
-> ✅ **Result:** All 14 employees displayed with department names, sorted alphabetically by department and then by employee name.
-
----
-
-## 📝 Summary
-
-| # | Task | JOIN Type Used | Result |
-|---|------|----------------|--------|
-| 1 | Employees with dept name | `INNER JOIN` | 14 rows |
-| 2 | Employees under manager JONES | Self-join `INNER JOIN` | 2 (SCOTT, FORD) |
-| 3 | Full employee details with grade | Multi-table + Self + `LEFT JOIN` | 14 rows |
-| 4 | Non-clerks with grade, sorted by salary | Multi-table `JOIN` + `ORDER BY` | 10 rows |
-| 5 | Employees with/without manager | Self `LEFT JOIN` | 14 rows |
-| 6 | Earn 36000/yr OR not clerk | Multi-table `JOIN` + `OR` | 10 rows |
-| 7 | Earn 30000/yr AND not clerk | Multi-table `JOIN` + `AND` | 5 rows |
-| 8 | Employee-Manager with 'NO MANAGER' | Self `LEFT JOIN` + `IFNULL` | 14 rows |
-| 9 | Dept name & total salary | `JOIN` + `GROUP BY` + `SUM` | 4 depts |
-| 10 | Employee with dept location | `JOIN` on LOC | 14 rows |
-| 11 | Employee & department names | `JOIN` + `ORDER BY` | 14 rows |
-
----
-
-## 🔑 Key SQL Concepts Used
-
-| Concept | Purpose | Example |
-|---------|---------|---------|
-| `INNER JOIN` | Matches rows from both tables | `E JOIN D ON E.DEPTNO = D.DEPTNO` |
-| `LEFT JOIN` | Includes unmatched rows from left table | `E LEFT JOIN M ON E.MGR = M.EMPNO` |
-| Self-join | Joins table to itself | `EMPLOYEE E JOIN EMPLOYEE M ON E.MGR = M.EMPNO` |
-| Multi-table JOIN | Joins 3+ tables | `E JOIN D ... JOIN S ...` |
-| `BETWEEN` in JOIN | Range-based join condition | `E.SAL BETWEEN S.LOSAL AND S.HISAL` |
-| `IFNULL(expr, alt)` | Replace NULL with value | `IFNULL(M.ENAME, 'NO MANAGER')` |
-| Table Aliases | Short names for tables | `EMPLOYEE E`, `DEPARTMENT D` |
-| `GROUP BY` with JOIN | Aggregate across joined tables | `GROUP BY D.DEPTNO, D.DNAME` |
-
----
-
-## 📚 SQL Functions Reference
-
-| Function | Category | Description | Example |
-|----------|----------|-------------|---------|
-| `INNER JOIN` | Join | Returns matching rows | `A JOIN B ON A.id = B.id` |
-| `LEFT JOIN` | Join | All left rows + matches | `A LEFT JOIN B ON A.id = B.id` |
-| `RIGHT JOIN` | Join | All right rows + matches | `A RIGHT JOIN B ON A.id = B.id` |
-| `CROSS JOIN` | Join | Cartesian product | `A CROSS JOIN B` |
-| `IFNULL(e, v)` | Function | Returns v if e is NULL | `IFNULL(NULL, 'N/A')` → 'N/A' |
-| `COALESCE(e1, e2)` | Function | First non-NULL value | `COALESCE(NULL, 'X')` → 'X' |
-| `BETWEEN` | Operator | Range check | `SAL BETWEEN 700 AND 1200` |
-| `GROUP BY` | Clause | Groups for aggregation | `GROUP BY DEPTNO` |
-| `SUM()` | Aggregate | Sum of values | `SUM(SAL)` |
-
 ---
 
 > **Submitted By:** shreyansh pratap mishra  
