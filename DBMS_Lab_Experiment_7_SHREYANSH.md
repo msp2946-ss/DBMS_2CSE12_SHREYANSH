@@ -5,7 +5,7 @@
 > **Database:** Shreyansh  
 > **Server:** MariaDB 10.4.32
 
----
+--- 
 
 ## Objective
 
