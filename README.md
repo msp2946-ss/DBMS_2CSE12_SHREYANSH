@@ -17,7 +17,10 @@
 - [x] Lab Assignment 06 - Date Functions, CASE/DECODE & String Operations
 - [x] Lab Assignment 07 - Aggregate Functions, GROUP BY & Matrix Queries
 - [x] Lab Assignment 08 - JOINs, Self-Joins & Multi-Table Queries
-- [ ] Lab Assignment 09 - *coming soon*
+- [x] Lab Assignment 09 - experiment has been completed 
+- [x] Lab Assignment 10 - experiment has been completed 
+- [x] Lab Assignment 11 - experiment has been completed 
+- [x] Lab Assignment 12 - experiment has been completed 
 
 ---
 
