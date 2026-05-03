@@ -1,0 +1,84 @@
+# <center>Experiment No.12
+### Perform the following Query 
+###   1. Display those employees whose salary is less than his manager but more than salary of any other managers. 
+~~~sql
+SELECT E.ENAME
+FROM EMPLOYEE E
+JOIN EMPLOYEE M ON E.MGR = M.EMPNO
+WHERE E.SAL < M.SAL
+AND E.SAL > ANY (
+    SELECT SAL FROM EMPLOYEE WHERE JOB = 'MANAGER'
+);
+~~~
+###  2. Find out the number of employees whose salary is greater than their manager salary?  
+~~~sql
+SELECT COUNT(*) AS TOTAL
+FROM EMPLOYEE E
+JOIN EMPLOYEE M ON E.MGR = M.EMPNO
+WHERE E.SAL > M.SAL;
+~~~
+### 3. Display those managers who are not working under president but they are working under any other manager?  
+~~~sql
+SELECT E.ENAME
+FROM EMPLOYEE E
+JOIN EMPLOYEE M ON E.MGR = M.EMPNO
+WHERE E.JOB = 'MANAGER'
+AND M.JOB <> 'PRESIDENT';
+~~~
+### 4. Delete those department where no employee working? 
+~~~sql
+DELETE FROM DEPARTMENT
+WHERE DEPTNO NOT IN (
+    SELECT DISTINCT DEPTNO FROM EMPLOYEE
+);
+~~~
+### 5. Delete those records from emp table whose deptno not available in dept table? 
+~~~sql
+DELETE FROM EMPLOYEE
+WHERE DEPTNO NOT IN (
+    SELECT DEPTNO FROM DEPARTMENT
+);
+~~~
+### 6. Display those earners whose salary is out of the grade available in sal grade table? 
+~~~sql
+SELECT ENAME, SAL
+FROM EMPLOYEE
+WHERE SAL NOT BETWEEN 
+    (SELECT MIN(LOSAL) FROM SALGRADE)
+AND 
+    (SELECT MAX(HISAL) FROM SALGRADE);
+~~~
+### 7. Display employee name, sal, comm. And whose net pay is greater than any other in the company? 
+~~~sql
+SELECT ENAME, SAL, COMM,
+       (SAL + IFNULL(COMM,0)) AS NET_PAY
+FROM EMPLOYEE
+WHERE (SAL + IFNULL(COMM,0)) >= ANY (
+    SELECT SAL FROM EMPLOYEE
+);
+~~~
+### 8. Display those employees who are working in sales or research? 
+~~~sql
+SELECT E.ENAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME IN ('SALES', 'RESEARCH');
+~~~
+### 9. Display the grade of jones? 
+~~~sql
+SELECT S.GRADE
+FROM EMPLOYEE E
+JOIN SALGRADE S 
+ON E.SAL BETWEEN S.LOSAL AND S.HISAL
+WHERE E.ENAME = 'JONES';
+~~~
+### 10. Display the department name the no of characters of which is equal to no of employees in any other department? 
+~~~sql
+SELECT D.DNAME
+FROM DEPARTMENT D
+WHERE LENGTH(D.DNAME) IN (
+    SELECT COUNT(*)
+    FROM EMPLOYEE
+    GROUP BY DEPTNO
+);
+~~~
